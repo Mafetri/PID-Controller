@@ -5,14 +5,14 @@
 This repository contains a PID (Proportional-Integral-Derivative) controller implementation with modular components for various functionalities. The project is structured into different modules, each serving a specific role in the control system. It was made to run into an Arduino Nano (clone) in a variation of Xinu OS
 
 Content included:
->**econders.c**: Encoder Module (makes use of the ISR)
-**locator_task.c**: Locator Module
-**planner_task.c**: Planner Module
-**serial_task.c**: Serial Module
-**serial.c** and **serial.h**: Serial driver for the Arduino Nano
-**timer1.c** and **timer1.h**: Timer 1 driver
-**mat.c**: Math library
-**data_structures.c** and **data_structures.h**: Data structures used in the project
+> - **econders.c**: Encoder Module (makes use of the ISR)
+> - **locator_task.c**: Locator Module
+> - **planner_task.c**: Planner Module
+> - **serial_task.c**: Serial Module
+> - **serial.c** and **serial.h**: Serial driver for the Arduino Nano
+> - **timer1.c** and **timer1.h**: Timer 1 driver
+> - **mat.c**: Math library
+> - **data_structures.c** and **data_structures.h**: Data structures used in the project
 
 ---
 
@@ -73,9 +73,11 @@ In `main.c` you will need to define the targets, you can add a target like so:
 The order of the `queue_enqueue_values` will be the order of the execution.
 
 In order to flash the Xinu SO and the PID program into the arduino, conect the arduino serial port, in the terminal, standing in `./xinu/compile` execute:
->make clean
-make
-make flash
+> make clean
+>    
+> make
+>    
+> make flash
 
 ---
 ## Hardware Used
@@ -89,12 +91,16 @@ make flash
 
 # Example
 I included a predefined route that represents a rectangle like so:
+
 ![Alt text](route.png)
 
 >queue_enqueue_values(&targets, 60.0, 0.0);
-	queue_enqueue_values(&targets, 60.0, 120.0);
-	queue_enqueue_values(&targets, 0.0, 120.0);
-	queue_enqueue_values(&targets, 0.0, 0.0);
+>
+>queue_enqueue_values(&targets, 60.0, 120.0);
+>
+>queue_enqueue_values(&targets, 0.0, 120.0);
+>
+>queue_enqueue_values(&targets, 0.0, 0.0);
 
 ![Alt text](pid_robot.gif)
 
